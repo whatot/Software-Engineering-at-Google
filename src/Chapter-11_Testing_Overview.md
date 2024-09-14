@@ -108,9 +108,9 @@ The ability for humans to manually validate every behavior in a system has been 
 
 人工手动验证系统中每一个行为的能力已经无法跟上大多数软件中功能和平台的爆炸性增长的步伐。想象一下，要手动测试谷歌搜索的所有功能，比如寻找航班、电影时间、相关图片，当然还有网页搜索结果（见图11-1），需要花费多少时间。即使你能确定如何解决这个问题，你也需要把这个工作量乘以谷歌搜索必须支持的每一种语言、国家和设备，而且别忘了检查诸如可访问性和安全性。试图通过要求人工手动与每个功能交互来评估产品质量是不可行的。当涉及到测试时，有一个明确的答案：自动化。
 
-![image-20220407195517053](./images/Figure%2011-1-1.png)
+![image-20220407195517053](./images/figure_11_1_1.png)
 
-![image-20220407195824423](./images/Figure%2011-1-2.png)
+![image-20220407195824423](./images/figure_11_1_2.png)
 
 *Figure 11-1. Screenshots of two complex Google search results*  *图11-1. 两个复杂的谷歌搜索结果的截图*
 
@@ -226,7 +226,7 @@ At Google, we classify every one of our tests into a size and encourage engineer
 
 在谷歌，我们把每一个测试都分成一个规模规模，并鼓励工程师总是为一个给定的功能编写尽可能小的测试。一个测试的规模大小不是由它的代码行数决定的，而是由它的运行方式、允许的操作以及它消耗多少资源决定的。事实上，在某些情况下，我们对小、中、大的定义实际上被编码为测试基础设施可以在测试上执行的约束。我们稍后会讨论细节，但简单地说，*小型测试*在一个进程中运行，*中型测试*在一台机器上运行，而*大型测试*在任何地方运行，如图11-2所展示。
 
-![Figure 11-2](./images/Figure%2011-2.png)
+![Figure 11-2](./images/figure_11_2.png)
 
 *Figure 11-2. Test sizes*  *Figure 11-2. 测试规模*
 
@@ -347,7 +347,7 @@ Just as we encourage tests of smaller size, at Google, we also encourage enginee
 
 正如我们鼓励在谷歌进行更小规模的测试一样，我们也鼓励工程师编写范围更狭小的测试。作为一个非常粗略的指导方针，我们倾向于将大约80%的测试混合在一起，这些测试是验证大多数业务逻辑的狭小范围单元测试；15%的中型集成测试，用于验证两个或多个组件之间的相互作用；以及验证整个系统的5%端到端测试。图11-3描述了我们如何将其视为金字塔。
 
-![image-20220407200917862](./images/Figure%2011-3.png)
+![image-20220407200917862](./images/figure_11_3.png)
 
 *Figure 11-3. Google’s version of Mike Cohn’s test pyramid;*[^6] *percentages are by test case count, and every team’s mix will be a little different*   *图11-3. 谷歌对Mike Cohn的测试金字塔的版本百分比是按测试案例来计算的，每个团队的组合都会有一些不同*
 
@@ -363,7 +363,7 @@ The hourglass involves many end-to-end tests and many unit tests but few integra
 
 沙漏涉及许多端到端的测试和许多单元测试，但很少有集成测试。它不像冰淇淋筒那样糟糕，但它仍然导致许多端到端的测试失败，而这些失败本可以通过一套中等范围的测试更快、更容易地发现。当紧密耦合使单独实例化单个依赖项变得困难时，就会出现沙漏模式。
 
-![image-20220407201117705](./images/Figure%2011-4.png)
+![image-20220407201117705](./images/figure_11_4.png)
 
 *Figure 11-4. Test suite antipatterns*  *图11-4. 测试套件的反模式*
 

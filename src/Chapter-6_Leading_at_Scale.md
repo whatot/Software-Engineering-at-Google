@@ -129,7 +129,7 @@ A number of leaders struggled with this issue over the years but failed to addre
 
 So what changed? At some point, we took a step back, identified the blinders, and did a full reevaluation of the trade-offs. It turns out that the pursuit of “quality” has not one, but two different costs. The first cost is to the user: more quality usually means more data being sent out, which means more latency. The second cost is to Google: more quality means doing more work to generate the data, which costs more CPU time in our servers—what we call “serving capacity.” Although leadership had often trodden carefully around the trade-off between quality and capacity, it had never treated latency as a full citizen in the calculus. As the old joke goes, “Good, Fast, Cheap—pick two.” A simple way to depict the trade-offs is to draw a triangle of tension between Good (Quality), Fast (Latency), and Cheap (Capacity), as illustrated in Figure 6-1.
 
-![Figure 6-1](./images/Figure%206-1.png)
+![Figure 6-1](./images/figure_6_1.png)
 Figure 6-1. Trade-offs within Web Search; pick two!  图6-1. 网络搜索中的权衡；选择两个!
 
 那么什么变了呢？在某种程度上，我们退后一步，确定了盲点，并对权衡做了全面的重新评估。结果证明对于“质量”的追求，有不是一个，而是两方面的开销。第一个开销是对用户的：更好的质量通常意味着需要传输更多的数据，也就意味着更多的延迟。第二方面的开销在 Google 本身：更好的质量意味着需要更多的工作来生成这些数据，这将消耗我们更多的服务器 CPU 时间，也就是我们说的 “服务容量”。尽管管理者曾经仔细地在质量和容量之间来回踱步，“延迟”从未被当做一等公民对待。就像老话说的“好、快、便宜只能选两个”（鱼和熊掌不可兼得？）。描绘这其中的权衡的最好的方式就是画一个这三者之间的三角形：好（质量），快（延迟）和便宜（容量），如下图 6-1 所示。
@@ -284,7 +284,7 @@ So really, the cycle of success is more of a spiral (see Figure 6-2). Over month
 
 所以，成功的循环更像是一个螺旋（参见图 6-2）。长年累月以来，你的组织通过解决新问题来扩张，然后压缩所需的人力来能够接受新的、并行的问题。如果你足够幸运，你才能被允许招聘更多的人。然而更常见的情况是你招聘的速度赶不上你团队规模扩张的速度。Larry Page，Google 的创始人之一，喜欢把这个螺旋比作“令人不适的刺激”。
 
-![Figure 6-2](./images/Figure%206-2.png)  
+![Figure 6-2](./images/figure_6_2.png)
 Figure 6-2. The spiral of success  图 6-2. 成功的螺旋
 
 The spiral of success is a conundrum—it’s something that’s difficult to manage, and yet it’s the main paradigm for scaling a team of teams. The act of compressing a problem isn’t just about figuring out how to maximize your team’s efficiency, but also about learning to scale your own time and attention to match the new breadth of responsibility.

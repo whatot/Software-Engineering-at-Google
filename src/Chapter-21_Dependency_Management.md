@@ -55,7 +55,7 @@ The diamond dependency problem, and other forms of conflicting requirements, req
 
 菱形依赖问题，以及其他形式的冲突需求，需要至少三层依赖关系，如图21-1所示。
 
-![Figure 21-1](./images/Figure%2021-1.png)
+![Figure 21-1](./images/figure_21_1.png)
 
 *Figure* *21-1.* *The* *diamond* *dependency* *problem*  *菱形依赖问题*
 
