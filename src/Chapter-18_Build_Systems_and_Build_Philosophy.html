@@ -314,7 +314,7 @@ simple example build file
 <p>The buildfile is written in XML and defines some simple metadata about the build along with a list of tasks (the <code>&lt;target&gt;</code> tags in the XML<sup class="footnote-reference"><a href="#3">3</a></sup>). Each task executes a list of possible commands defined by Ant, which here include creating and deleting directories, running javac, and creating a JAR file. This set of commands can be extended by user-provided plug-ins to cover any sort of logic. Each task can also define the tasks it depends on via the depends attribute. These dependencies form an acyclic graph (see Figure 18-1).</p>
 <p>构建文件是用XML编写的，定义了一些关于构建的简单元数据以及任务列表（XML中的<code>&lt;target&gt;</code>标签）。每个任务都执行Ant定义的一系列可能的命令，其中包括创建和删除目录、运行javac和创建JAR文件。这组命令可以由用户提供的插件扩展，以涵盖任何类型的逻辑。每个任务还可以通过依赖属性定义它所依赖的任务。这些依赖关系形成一个无环图（见图18-1）。</p>
 <p>Figure 18-1. An acyclic graph showing dependencies 显示依赖关系的无环图</p>
-<p><img src="./images/Figure%2018-1.jpg" alt="Figure 18-1" /></p>
+<p><img src="./images/figure_18_1.jpg" alt="Figure 18-1" /></p>
 <p>Users perform builds by providing tasks to Ant’s command-line tool. For example, when a user types ant dist, Ant takes the following steps:</p>
 <ol>
 <li>Loads a file named <em>build.xml</em> in the current directory and parses it to create the graph structure shown in Figure 18-1.</li>
@@ -475,7 +475,7 @@ Fundamentally, it might not seem like what’s happening here is that much diffe
 <h3 id="remote-caching-远程缓存"><a class="header" href="#remote-caching-远程缓存">Remote caching 远程缓存</a></h3>
 <p>The simplest type of distributed build is one that only leverages remote caching, which is shown in Figure 18-2.</p>
 <p>最简单的分布式构建类型是只利用远程缓存的构建，如图18-2所示。</p>
-<p><img src="./images/Figure%2018-2.jpg" alt="Figure 18-2" /></p>
+<p><img src="./images/figure_18_2.jpg" alt="Figure 18-2" /></p>
 <p>Figure 18-2. A distributed build showing remote caching</p>
 <p>Every system that performs builds, including both developer workstations and continuous integration systems, shares a reference to a common remote cache service. This service might be a fast and local short-term storage system like Redis or a cloud service like Google Cloud Storage. Whenever a user needs to build an artifact, whether directly or as a dependency, the system first checks with the remote cache to see if that artifact already exists there. If so, it can download the artifact instead of building it. If not, the system builds the artifact itself and uploads the result back to the cache. This means that low-level dependencies that don’t change very often can be built once and shared across users rather than having to be rebuilt by each user. At Google, many artifacts are served from a cache rather than built from scratch, vastly reducing the cost of running our build system.</p>
 <p>每个执行构建的系统，包括开发人员工作站和连续集成系统，都共享对公共远程缓存服务的引用。这个服务可能是一个高速的本地短期存储系统，如Redis，或一个云服务，如谷歌云存储。每当用户需要构建一个构件时，无论是直接构建还是作为一个依赖，系统首先检查远程缓存，看该构件是否已经存在。如果存在，它可以下载该构件而不是构建它。如果没有，系统会自己构建构件，并将结果上传到缓存中。这意味着不经常更改的低级依赖项可以构建一次并在用户之间共享，而不必由每个用户重新构建。在谷歌，许多构件是从缓存中提供的，而不是从头开始构建的，这大大降低了我们运行构建系统的成本。</p>
@@ -486,7 +486,7 @@ Fundamentally, it might not seem like what’s happening here is that much diffe
 <h3 id="remote-execution-远程构建"><a class="header" href="#remote-execution-远程构建">Remote execution 远程构建</a></h3>
 <p>Remote caching isn’t a true distributed build. If the cache is lost or if you make a low- level change that requires everything to be rebuilt, you still need to perform the entire build locally on your machine. The true goal is to support <em>remote execution</em>, in which the actual work of doing the build can be spread across any number of workers. Figure 18-3 depicts a remote execution system.</p>
 <p>远程缓存不是真正的分布式构建。如果缓存丢失或者进行了需要重建所有内容的低级更改，那么仍然需要在计算机上本地执行整个构建。远程缓存并不是一个真正的分布式构建。如果缓存丢失了，或者如果你做了一个低级别的改变，需要重建所有的东西，你仍然需要在你的机器上执行整个构建。真正的目标是支持<em>远程执行</em>，在这种情况下，进行构建的实际工作可以分散到任何数量的机器上。[图18-3]（#_bookmark1676）描述了一个远程执行系统。</p>
-<p><img src="./images/Figure%2018-3.png" alt="Figure 18-3" /></p>
+<p><img src="./images/figure_18_3.png" alt="Figure 18-3" /></p>
 <p>Figure 18-3. A remote execution system</p>
 <p>The build tool running on each user’s machine (where users are either human engineers or automated build systems) sends requests to a central build master. The build master breaks the requests into their component actions and schedules the execution of those actions over a scalable pool of workers. Each worker performs the actions asked of it with the inputs specified by the user and writes out the resulting artifacts. These artifacts are shared across the other machines executing actions that require them until the final output can be produced and sent to the user.</p>
 <p>在每个用户的机器上运行的构建工具（用户可以是工程师，也可以是自动构建系统）向中央构建主控器发送请求。构建主机将请求分解为组件操作，并在可扩展的机器资源池上安排这些操作的执行。每个机器根据用户指定的输入执行所要求的操作，并写出结果的构件。这些构件在执行需要它们的操作的其他机器之间共享，直到可以生成最终输出并发送给用户。</p>
@@ -496,7 +496,7 @@ Fundamentally, it might not seem like what’s happening here is that much diffe
 <p>要做到这一点，前面描述的基于构件的构建系统的所有部分都需要结合起来。构建环境必须是完全自描述的，这样我们就可以在没有人为干预的情况下提高构建的速度。构建过程本身必须是完全自包含的，因为每个步骤可能在不同的机器上执行。输出必须是完全确定的，这样每个构建机器就可以相信它从其他构建机器那里得到的结果。样的保证对于基于任务的系统来说是非常困难的，这使得在一个系统之上构建一个可靠的远程执行系统几乎是不可能的。</p>
 <p><strong>Distributed builds at Google.</strong> Since 2008, Google has been using a distributed build system that employs both remote caching and remote execution, which is illustrated in Figure 18-4.</p>
 <p>**谷歌的分布式构建。**自2008年以来，谷歌一直在使用分布式构建系统，该系统同时采用了远程缓存和远程执行，如[图18-4]（#_bookmark1678）所示。</p>
-<p><img src="./images/Figure%2018-4.png" alt="Figure 18-4" /></p>
+<p><img src="./images/figure_18_4.png" alt="Figure 18-4" /></p>
 <p><em>Figure</em> <em>18-4. Google’s distributed build system</em></p>
 <p>Google’s remote cache is called ObjFS. It consists of a backend that stores build outputs in <a href="https://oreil.ly/S_N-D">Bigtables</a> distributed throughout our fleet of production machines and a frontend FUSE daemon named objfsd that runs on each developer’s machine. The FUSE daemon allows engineers to browse build outputs as if they were normal files stored on the workstation, but with the file content downloaded on-demand only for the few files that are directly requested by the user. Serving file contents on-demand greatly reduces both network and disk usage, and the system is able to <a href="https://oreil.ly/NZxSp">build twice as fast</a>compared to when we stored all build output on the developer’s local disk.</p>
 <p>谷歌的远程缓存系统被称为ObjFS。它包括一个将构建输出存储在<a href="https://oreil.ly/S_N-D">Bigtables</a>的后端，分布在我们的生产机群中，以及一个运行在每个开发人员机器上的名为objfsd的前端FUSE守护程序。FUSE守护进程允许工程师像浏览存储在工作站上的普通文件一样浏览构建输出，但文件内容仅针对用户直接请求的少数文件按需下载。按需提供文件内容大大减少了网络和磁盘的使用，系统的构建速度是将所有构建输出存储在开发人员的本地磁盘上时的两倍。</p>
@@ -538,7 +538,7 @@ Fundamentally, it might not seem like what’s happening here is that much diffe
 <p>在细分为细粒度模块的大型项目中，大多数依赖关系可能是内部的；也就是说，在同一源存储库中定义和构建的另一个目标上。内部依赖项与外部依赖项的不同之处在于，它们是从源代码构建的，而不是在运行构建时作为预构建构件下载的。这也意味着内部依赖项没有“版本”的概念——目标及其所有内部依赖项始终在存储库中的同一提交/修订中构建。</p>
 <p>One issue that should be handled carefully with regard to internal dependencies is how to treat transitive dependencies (Figure 18-5). Suppose target A depends on target B, which depends on a common library target C. Should target A be able to use classes defined in target C?</p>
 <p>关于内部依赖关系，应该小心处理的一个问题是如何处理可传递依赖关系（图 18-5）。假设目标A依赖于目标B，而目标B依赖于一个共同的库目标C，那么目标A是否应该使用目标C中定义的类？</p>
-<p><img src="./images/Figure%2018-5.png" alt="Figure 18-5" /></p>
+<p><img src="./images/figure_18_5.png" alt="Figure 18-5" /></p>
 <p><em>Figure</em> <em>18-5.</em> <em>Transitive</em> <em>dependencies</em></p>
 <p>As far as the underlying tools are concerned, there’s no problem with this; both B and C will be linked into target A when it is built, so any symbols defined in C are known to A. Blaze allowed this for many years, but as Google grew, we began to see problems. Suppose that B was refactored such that it no longer needed to depend on C. If B’s dependency on C was then removed, A and any other target that used C via a dependency on B would break. Effectively, a target’s dependencies became part of its public contract and could never be safely changed. This meant that dependencies accumulated over time and builds at Google started to slow down.</p>
 <p>就底层工具而言，这没有问题；B和C在构建目标A时都会链接到目标A中，因此C中定义的任何符号都会被A知道。Blaze允许这一点很多年了，但随着谷歌的发展，我们开始发现问题。假设B被重构，不再需要依赖C。如果B对C的依赖关系被删除，A和通过对B的依赖关系使用C的任何其他目标都将中断。实际上，一个目标的依赖关系成为其公共契约的一部分，永远无法安全地更改。这意味着依赖性会随着时间的推移而积累，谷歌的构建速度开始变慢。</p>

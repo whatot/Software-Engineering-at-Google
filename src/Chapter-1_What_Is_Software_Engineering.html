@@ -241,7 +241,7 @@
 </div>
 <p>除了死亡、税收和短暂的移动应用生命，没有什么是确定的</p>
 </blockquote>
-<p><img src="./images/figure%201-1.png" alt="Figure 1-1. Life span and the importance of upgrades" /></p>
+<p><img src="./images/figure_1_1.png" alt="Figure 1-1. Life span and the importance of upgrades" /></p>
 <p>The low and high points on the expected life span spectrum suggest that there’s a transition somewhere. Somewhere along the line between a one-off program and a project that lasts for decades, a transition happens: a project must begin to react to changing externalities.<sup class="footnote-reference"><a href="#7">7</a></sup> For any project that didn’t plan for upgrades from the start, that transition is likely very painful for three reasons, each of which compounds the others:</p>
 <ul>
 <li>You’re performing a task that hasn’t yet been done for this project; more hidden assumptions have been baked-in.</li>
@@ -440,7 +440,7 @@ We have processes and policies like the Beyoncé Rule. The net effect of these p
 <p>我们发现，在开发人员工作流程的早期发现问题通常可以降低成本，这是一个普遍的真理。考虑一下开发人员工作流程的时间轴，该时间轴从左到右依次为：从构思和设计开始，经过实施、审核、测试、提交、金丝雀和最终的生产部署。如图 1-2 所示，在此时间轴上将问题检测提前到 "左侧"，解决问题的成本会比等待时间更长。</p>
 <p>This term seems to have originated from arguments that security mustn’t be deferred until the end of the development process, with requisite calls to “shift left on security.” The argument in this case is relatively simple: if a security problem is discovered only after your product has gone to production, you have a very expensive problem. If it is caught before deploying to production, it may still take a lot of work to identify and remedy the problem, but it’s cheaper. If you can catch it before the original developer commits the flaw to version control, it’s even cheaper: they already have an understanding of the feature; revising according to new security constraints is cheaper than committing and forcing someone else to triage it and fix it.</p>
 <p>这个术语似乎源一种观点，即安全问题不能推迟到开发过程的最后阶段，必须要求“在安全上向左转移”。这种情况下的论点相对简单：如果安全问题是在产品投入生产后才发现的，修复的成本就非常高。如果在部署到生产之前就发现了安全问题，那也需要花费大量的工作来检测和修复问题，但成本更低些。如果你能够在最初的开发之前发现安全问题，将缺陷提交到版本控制就被发现，修复的成本更低：他们已经了解该功能；根据新的安全约束规范进行开发，要比提交代码后再让其他人分类标识并修复它更简单。</p>
-<p><img src="./images/figure%201-2.png" alt="Figure 1-2. Timeline of the developer workflow" /></p>
+<p><img src="./images/figure_1_2.png" alt="Figure 1-2. Timeline of the developer workflow" /></p>
 <p>The same basic pattern emerges many times in this book. Bugs that are caught by static analysis and code review before they are committed are much cheaper than bugs that make it to production. Providing tools and practices that highlight quality, reliability, and security early in the development process is a common goal for many of our infrastructure teams. No single process or tool needs to be perfect, so we can assume a defense-in-depth approach, hopefully catching as many defects on the left side of the graph as possible.</p>
 <p>同样的基本模式在本书中多次出现。在提交之前通过静态分析和代码审查发现的bug要比投入生产的bug成本更低。在开发过程的早期提供高质量、可靠性和安全性的工具和实践是我们许多基础架构团队的共同目标。没有一个过程或工具是完美的，所以我们可以采取纵深防御的方法，希望尽早抓住图表左侧的缺陷。</p>
 <h2 id="trade-offs-and-costs-权衡和成本"><a class="header" href="#trade-offs-and-costs-权衡和成本">Trade-offs and Costs 权衡和成本</a></h2>

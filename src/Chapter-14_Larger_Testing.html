@@ -208,7 +208,7 @@
 <p>大型测试存在的主要是为了提高测试的仿真度。仿真度是测试反映被测系统（SUT）真实行为的属性。</p>
 <p>One way of envisioning fidelity is in terms of the environment. As Figure 14-1 illustrates, unit tests bundle a test and a small portion of code together as a runnable unit, which ensures the code is tested but is very different from how production code runs. Production itself is, naturally, the environment of highest fidelity in testing. There is also a spectrum of interim options. A key for larger tests is to find the proper fit, because increasing fidelity also comes with increasing costs and (in the case of production) increasing risk of failure.</p>
 <p>一种设想仿真度的方法是在环境方面。如图14-1所示，单元测试将测试和一小部分代码捆绑在一起作为一个可运行的单元，这确保了代码得到测试，但与生产代码的运行方式有很大不同。产品本身才是测试中仿真度最高的环境。也有一系列的临时选项。大型测试的一个关键是要找到适当的契合点，因为提高仿真度也伴随着成本的增加和（在线上的情况下）故障风险的增加。</p>
-<p><img src="./images/Figure%2014-1.png" alt="Figure 14-1" /></p>
+<p><img src="./images/figure_14_1.png" alt="Figure 14-1" /></p>
 <p><em>Figure 14-1. Scale of increasing fidelity</em> <em>图14-1 环境仿真度递增的尺度</em></p>
 <p>Tests can also be measured in terms of how faithful the test content is to reality. Many handcrafted, large tests are dismissed by engineers if the test data itself looks unrealistic. Test data copied from production is much more faithful to reality (having been captured that way), but a big challenge is how to create realistic test traffic <em>before</em> launching the new code. This is particularly a problem in artificial intelligence (AI), for which the “seed” data often suffers from intrinsic bias. And, because most data for unit tests is handcrafted, it covers a narrow range of cases and tends to conform to the biases of the author. The uncovered scenarios missed by the data represent a fidelity gap in the tests.</p>
 <p>测试也可以用测试内容对现实的仿真度程度来衡量。如果测试数据本身看起来不真实，许多手工配置的大型测试就会被工程师摒弃。从生产中复制的测试数据仿真度更高（以这种方式捕获），但一个很大的挑战是如何在<em>启动新代码之前</em>创建真实的测试流量。这在人工智能（AI）中尤其是一个问题，因为 "种子 "数据经常受到内在偏见的影响。而且，由于大多数单元测试的数据是手工配置的，它涵盖的案例范围很窄，并倾向于符合作者的偏见。数据所遗漏的场景代表了测试中的仿真度差距。</p>
@@ -291,7 +291,7 @@ Google needs to be able to run all such useful affected tests efficiently for pr
 <p>其余大型测试都为生命周期较长的软件提供了价值，但随着时间的增加，主要的问题变成了这种测试的可维护性。</p>
 <p>Incidentally, this time impact might be one reason for the development of the “ice cream cone” testing antipattern, as mentioned in the Chapter 11 and shown again in Figure 14-2.</p>
 <p>顺便说一句，这一时间冲击可能是开发“冰淇淋筒”测试反模式的原因之一，如第11章所述，图14-2再次显示</p>
-<p><img src="./images/Figure%2014-2.png" alt="Figure 14-2" /></p>
+<p><img src="./images/figure_14_2.png" alt="Figure 14-2" /></p>
 <p><em>Figure 14-2. The ice cream cone testing antipattern</em></p>
 <p>When development starts with manual testing (when engineers think that code is meant to last only for minutes), those manual tests accumulate and dominate the initial overall testing portfolio. For example, it’s pretty typical to hack on a script or an app and test it out by running it, and then to continue to add features to it but continue to test it out by running it manually. This prototype eventually becomes functional and is shared with others, but no automated tests actually exist for it.</p>
 <p>当开发从手动测试开始时（当工程师认为代码只能持续几分钟时），那些手动测试就会积累起来并主导最初的整体测试组合。例如，通常我们会修改脚本或应用程序并通过运行来验证修改有效，然后继续向其添加功能并通过手动运行来测试它，这是非常典型的。长此以往，原型产品的功能会越来越完整，直至可与其他人共享，但实际上不存在针对它的自动测试。</p>
@@ -306,7 +306,7 @@ Google needs to be able to run all such useful affected tests efficiently for pr
 <p>在由微服务或独立服务器组成的系统中，它们的互连模式形似一个图，图中的节点数我们用N来表示。每次向该图添加新节点时，都会对通过该图的不同执行路径的数量产生乘法效应的倍增。</p>
 <p><a href="#_bookmark1226">Figure 14-3 </a>depicts an imagined SUT: this system consists of a social network with users, a social graph, a stream of posts, and some ads mixed in. The ads are created by advertisers and served in the context of the social stream. This SUT alone consists of two groups of users, two UIs, three databases, an indexing pipeline, and six servers. There are 14 edges enumerated in the graph. Testing all of the end-to-end possibilities is already difficult. Imagine if we add more services, pipelines, and databases to this mix: photos and images, machine learning photo analysis, and so on?</p>
 <p>图14-3描绘了一个想象中的SUT：这个系统由一个有用户的社交网络、一个社交图、一个feed流和一些混合广告组成。广告由广告商创建，并在社交流的背景下提供服务。这个SUT单独由两组用户、两个UI、三个数据库、一个索引管道和六个服务器组成。图中列举了14条边。测试所有端到端的可能性已经很困难了。想象一下，如果我们在这个组合中添加更多的服务、管道和数据库：照片和图像、机器学习照片分析等等？</p>
-<p><img src="./images/Figure%2014-3.png" alt="Figure 14-3" /></p>
+<p><img src="./images/figure_14_3.png" alt="Figure 14-3" /></p>
 <p><em>Figure 14-3. Example of a fairly small SUT: a social network with advertising</em></p>
 <p>The rate of distinct scenarios to test in an end-to-end way can grow exponentially or combinatorially depending on the structure of the system under test, and that growth does not scale. Therefore, as the system grows, we must find alternative larger testing strategies to keep things manageable.</p>
 <p>以端到端的方式测试的不同场景的速率可以指数增长或组合增长，这取决于被测系统的结构，并且这种增长不可持续。因此，随着系统的发展，我们必须找到其他大型测试的测试策略，以保持测试的可管理性。</p>
@@ -320,7 +320,7 @@ Even for integration tests,smaller is better-a handful of large tests is prefera
 <p>即便是集成测试，也是越小越好——几个大型测试也比一个超大测试要好。而且，因为测试的范围经常与SUT的范围相联系，找到使SUT变小的方法有助于使测试变小。</p>
 <p>One way to achieve this test ratio when presented with a user journey that can requirecontributions from many internal systems is to "chain"tests,as illustrated inFigure 14-4,not specifically in their execution,but to create multiple smaller pairwiseintegration tests that represent the overall scenario.This is done by ensuring that theoutput of one test is used as the input to another test by persisting this output to adata repository.</p>
 <p>当出现一个需要许多内部系统服务的用户请求时，实现这种测试比率的一种方法是 "串联"测试，如图14-4所示，不是具体执行，而是创建多个较小的成对集成测试，代表整个场景。</p>
-<p><img src="./images/Figure%2014-4.png" alt="Figure 14-4" /></p>
+<p><img src="./images/figure_14_4.png" alt="Figure 14-4" /></p>
 <p>Figure 14-4. Chained tests</p>
 <h2 id="structure-of-a-large-test-大型测试组成"><a class="header" href="#structure-of-a-large-test-大型测试组成">Structure of a Large Test 大型测试组成</a></h2>
 <p>Although large tests are not bound by small test constraints and could conceivably consist of anything, most large tests exhibit common patterns. Large tests usually consist of a workflow with the following phases:</p>
@@ -340,7 +340,7 @@ Even for integration tests,smaller is better-a handful of large tests is prefera
 <h3 id="the-system-under-test-被测试的系统"><a class="header" href="#the-system-under-test-被测试的系统">The System Under Test 被测试的系统</a></h3>
 <p>One key component of large tests is the aforementioned SUT (see Figure 14-5). A typical unit test focuses its attention on one class or module. Moreover, the test code runs in the same process (or Java Virtual Machine [JVM], in the Java case) as the code being tested. For larger tests, the SUT is often very different; one or more separate processes with test code often (but not always) in its own process.</p>
 <p>大型测试的一个关键组成部分是前述的SUT（见图14-5）。一个典型的单元测试将关注点集中在一个类或模块上。此外，测试代码运行在与被测试代码相同的进程（在Java中，也可能在相同的Java虚拟机[JVM]中）。对于大型测试，SUT通常是非常不同的；一个或多个独立的进程，测试代码通常（但不总是）在自己的进程中。</p>
-<p><img src="./images/Figure%2014-5.png" alt="Figure 14-5" /></p>
+<p><img src="./images/figure_14_5.png" alt="Figure 14-5" /></p>
 <p><em>Figure 14-5. An example system under test (SUT)</em></p>
 <p>At Google, we use many different forms of SUTs, and the scope of the SUT is one of the primary drivers of the scope of the large test itself (the larger the SUT, the larger the test). Each SUT form can be judged based on two primary factors:</p>
 <ul>
@@ -414,7 +414,7 @@ Some SUTs represent a mix: it might be possible to run some of the SUT but have 
 <p>另一个特殊的边界是第三方依赖关系。第三方系统可能没有用于测试的公共共享环境，在某些情况下，向第三方发送流量会产生成本。因此，不建议让自动匹配的测试使用真正的第三方API，并且依赖性是分割测试的一个重要接点。</p>
 <p>To address this issue of size, we have made this SUT smaller by replacing its databases with in-memory databases and removing one of the servers outside the scope of the SUT that we actually care about, as shown in Figure 14-6. This SUT is more likely to fit on a single machine.</p>
 <p>为了解决规模问题，我们通过用内存数据库替换它的数据库，并移除SUT范围之外的一个我们真正关心的服务器，使这个SUT变得更小，如图14-6所示。这个SUT更可能适合在一台机器上使用。</p>
-<p><img src="./images/Figure%2014-6.png" alt="Figure 14-6" /></p>
+<p><img src="./images/figure_14_6.png" alt="Figure 14-6" /></p>
 <p><em>Figure 14-6. A reduced-size SUT</em></p>
 <p>The key is to identify trade-offs between fidelity and cost/reliability, and to identify reasonable boundaries. If we can run a handful of binaries and a test and pack it all into the same machines that do our regular compiles, links, and unit test executions, we have the easiest and most stable “integration” tests for our engineers.</p>
 <p>关键是要确定仿真度和成本/可靠性之间的权衡，并确定合理的边界。如果我们能够运行少量的二进制文件和一个测试，并将其全部打包到进行常规编译、链接和单元测试执行的同一台机器上，我们就能为我们的工程师提供最简单、最稳定的 "集成 "测试。</p>
