@@ -1,0 +1,26 @@
+[book]
+authors = ["Titus Winters","Tom Manshreck","Hyrum Wright"]
+language = "zh"
+multilingual = false
+src = "./"
+title = "Software Engineering at Google"
+
+[preprocessor.toc]
+command = "mdbook-toc"
+renderer = ["html"]
+
+[preprocessor.open-on-gh]
+command = "mdbook-open-on-gh"
+renderer = ["html"]
+
+[output.html]
+git-repository-url = "https://github.com/qiangmzsx/Software-Engineering-at-Google"
+git-branch = "master"
+
+[output.html.print]
+# print超过github上限50MB，于是默认关闭
+enable = false
+
+[output.html.search]
+# search超过github上限100MB，于是默认关闭
+enable = false
