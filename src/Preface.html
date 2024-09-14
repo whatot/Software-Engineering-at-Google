@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>序言 - Software Engineering at Google</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../src/Foreword.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li class="chapter-item expanded "><a href="../src/Preface.html" class="active"><strong aria-hidden="true">2.</strong> 序言</a></li><li class="chapter-item expanded "><a href="../src/Chapter-1_What_Is_Software_Engineering.html"><strong aria-hidden="true">3.</strong> 第一章 软件工程是什么？</a></li><li class="chapter-item expanded "><a href="../src/Chapter-2_How_to_Work_Well_on_Teams.html"><strong aria-hidden="true">4.</strong> 第二章 如何融入团队</a></li><li class="chapter-item expanded "><a href="../src/Chapter-3_Knowledge_Sharing.html"><strong aria-hidden="true">5.</strong> 第三章 知识共享</a></li><li class="chapter-item expanded "><a href="../src/Chapter-4_Engineering_for_Equity.html"><strong aria-hidden="true">6.</strong> 第四章 公平工程</a></li><li class="chapter-item expanded "><a href="../src/Chapter-5_How_to_Lead_a_Team.html"><strong aria-hidden="true">7.</strong> 第五章 如何领导团队</a></li><li class="chapter-item expanded "><a href="../src/Chapter-6_Leading_at_Scale.html"><strong aria-hidden="true">8.</strong> 第六章 规模优先</a></li><li class="chapter-item expanded "><a href="../src/Chapter-7_Measuring_Engineering_Productivity.html"><strong aria-hidden="true">9.</strong> 第七章 测量工程效率</a></li><li class="chapter-item expanded "><a href="../src/Chapter-8_Style_Guides_and_Rules.html"><strong aria-hidden="true">10.</strong> 第八章 风格指南和规则</a></li><li class="chapter-item expanded "><a href="../src/Chapter-9_Code_Review.html"><strong aria-hidden="true">11.</strong> 第九章 代码审查</a></li><li class="chapter-item expanded "><a href="../src/Chapter-10_Documentatio.html"><strong aria-hidden="true">12.</strong> 第十章 文档</a></li><li class="chapter-item expanded "><a href="../src/Chapter-11_Testing_Overview.html"><strong aria-hidden="true">13.</strong> 第十一章 测试概述</a></li><li class="chapter-item expanded "><a href="../src/Chapter-12_Unit_Testing.html"><strong aria-hidden="true">14.</strong> 第十二章 单元测试</a></li><li class="chapter-item expanded "><a href="../src/Chapter-13_Test_Doubles.html"><strong aria-hidden="true">15.</strong> 第十三章 测试替代</a></li><li class="chapter-item expanded "><a href="../src/Chapter-14_Larger_Testing.html"><strong aria-hidden="true">16.</strong> 第十四章 大型测试</a></li><li class="chapter-item expanded "><a href="../src/Chapter-15_Deprecation.html"><strong aria-hidden="true">17.</strong> 第十五章 废弃</a></li><li class="chapter-item expanded "><a href="../src/Chapter-16_Version_Control_and_Branch_Management.html"><strong aria-hidden="true">18.</strong> 第十六章 版本控制和分支管理</a></li><li class="chapter-item expanded "><a href="../src/Chapter-17_Code_Search.html"><strong aria-hidden="true">19.</strong> 第十七章 代码搜索</a></li><li class="chapter-item expanded "><a href="../src/Chapter-18_Build_Systems_and_Build_Philosophy.html"><strong aria-hidden="true">20.</strong> 第十八章 构建系统，构建理念</a></li><li class="chapter-item expanded "><a href="../src/Chapter-19_Critique_Googles_Code_Review_Tool.html"><strong aria-hidden="true">21.</strong> 第十九章 体验：谷歌的代码审查工具</a></li><li class="chapter-item expanded "><a href="../src/Chapter-20_Static_Analysis.html"><strong aria-hidden="true">22.</strong> 第二十章 静态分析</a></li><li class="chapter-item expanded "><a href="../src/Chapter-21_Dependency_Management.html"><strong aria-hidden="true">23.</strong> 第二十一章 依赖管理</a></li><li class="chapter-item expanded "><a href="../src/Chapter-22_Large-Scale_Changes.html"><strong aria-hidden="true">24.</strong> 第二十二章 大规模变更</a></li><li class="chapter-item expanded "><a href="../src/Chapter-23_Continuous_Integration.html"><strong aria-hidden="true">25.</strong> 第二十三章 持续集成</a></li><li class="chapter-item expanded "><a href="../src/Chapter-24_Continuous_Delivery.html"><strong aria-hidden="true">26.</strong> 第二十四章 持续交付</a></li><li class="chapter-item expanded "><a href="../src/Chapter-25_Compute_as_a_Service.html"><strong aria-hidden="true">27.</strong> 第二十五章 计算即服务</a></li><li class="chapter-item expanded "><a href="../src/Afterword.html"><strong aria-hidden="true">28.</strong> 后记</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Software Engineering at Google</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/whatot/Software-Engineering-at-Google" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="preface-序言"><a class="header" href="#preface-序言">Preface 序言</a></h2>
+<p>This book is titled <em>Software Engineering at Google</em>. What precisely do we mean by software engineering? What distinguishes “software engineering” from “programming” or “computer science”? And why would Google have a unique perspective to add to the corpus of previous software engineering literature written over the past 50 years?</p>
+<p>本书的标题是*《谷歌的软件工程》*。我们对软件工程的确切定义是什么？软件工程 "与 "编程 "或 "计算机科学 "的区别是什么？为什么谷歌在过去50年的软件工程文献库中会有那些独特的视角？</p>
+<p>The terms “programming” and “software engineering” have been used interchangeably for quite some time in our industry, although each term has a different emphasis and different implications. University students tend to study computer science and get jobs writing code as “programmers.”</p>
+<p>在我们的业界，"编程 "和 "软件工程 "这两个术语已经被交替使用了相当长的时间，尽管每个术语都有不同的重点和不同的含义。大学生倾向于学习计算机科学，并以作为"程序员 “的身份进行写代码的工作。</p>
+<p>“Software engineering,” however, sounds more serious, as if it implies the application of some theoretical knowledge to build something real and precise. Mechanical engineers, civil engineers, aeronautical engineers, and those in other engineering disciplines all practice engineering. They all work in the real world and use the application of their theoretical knowledge to create something real. Software engineers also create “something real,” though it is less tangible than the things other engineers create.</p>
+<p>然而，"软件工程 "听起来更加严肃，似乎它意味着应用理论知识来建立真实和精确的东西。机械工程师、土木工程师、航空工程师和其他工程学科的人都在进行工程实践。他们都在现实世界中工作，运用他们的理论知识来创造一些真实的东西。软件工程师也创造 "真实的东西"，尽管它没有像其他工程师创造的东西那么有形。</p>
+<p>Unlike those more established engineering professions, current software engineering theory or practice is not nearly as rigorous. Aeronautical engineers must follow rigid guidelines and practices, because errors in their calculations can cause real damage; programming, on the whole, has traditionally not followed such rigorous practices. But, as software becomes more integrated into our lives, we must adopt and rely on more rigorous engineering methods. We hope this book helps others see a path toward more reliable software practices.</p>
+<p>与那些更成熟的工程专业不同，目前的软件工程理论或实践方法还没有那么严格。航空工程师必须遵循严格的准则和实践，因为他们的计算错误会造成真正的损失；而编程，总体来说，传统上没有遵循这样严格的实践。但是，随着软件越来越多地融入我们的生活，我们必须采用并依赖更严格的工程方法。我们希望这本书能帮助其他人看到一条通往更可靠的软件实践的道路。</p>
+<h3 id="programming-over-time-随时间变化的编程"><a class="header" href="#programming-over-time-随时间变化的编程">Programming Over Time 随时间变化的编程</a></h3>
+<p>We propose that “software engineering” encompasses not just the act of writing code, but all of the tools and processes an organization uses to build and maintain that code over time. What practices can a software organization introduce that will best keep its code valuable over the long term? How can engineers make a codebase more sustainable and the software engineering discipline itself more rigorous? We don’t have fundamental answers to these questions, but we hope that Google’s collective experience over the past two decades illuminates possible paths toward finding those answers.</p>
+<p>我们建议，"软件工程 "不仅包括编写代码的行为，还包括一个组织用来长期构建和随时间维护代码的所有工具和流程。一个软件组织可以采用哪些做法来使其代码长期保持最佳价值？工程师们如何才能使代码库更具有可持续性，并使软件工程学科本身更加严格？我们没有这些问题的最终答案，但我们希望谷歌在过去20年的集体经验能够为寻找这些答案的提供可能。</p>
+<p>One key insight we share in this book is that software engineering can be thought of as “programming integrated over time.” What practices can we introduce to our code to make it <em>sustainable</em>—able to react to necessary change—over its life cycle, from conception to introduction to maintenance to deprecation?</p>
+<p>我们在本书中分享的一个关键观点是，软件工程可以被认为是 "随着时间推移而整合的编程"。我们可以在我们的代码中引入哪些实践，使其<em>可持续</em>——能够对必要的变化做出反应——在其生命周期中，从设计到引入到维护到废弃？</p>
+<p>The book emphasizes three fundamental principles that we feel software organizations should keep in mind when designing, architecting, and writing their code:<br />
+<em>Time</em> <em>and</em> <em>Change</em>
+How code will need to adapt over the length of its life
+<em>Scale</em> <em>and Growth</em>
+How an organization will need to adapt as it evolves
+<em>Trade-offs and Costs</em>
+How an organization makes decisions, based on the lessons of Time and Change and Scale and Growth</p>
+<p>本书强调了三个基本原则，我们认为软件组织在设计、架构和编写代码时应该牢记这些原则：
+<em>时间和变化</em>
+​代码如何在其生命周期内进行适配。
+<em>规模和增长</em>
+​一个组织如何适应它的发展过程。
+<em>权衡和成本</em>
+​一个组织如何根据时间和变化以及规模和增长的经验教训做出决策。</p>
+<p>Throughout the chapters, we have tried to tie back to these themes and point out ways in which such principles affect engineering practices and allow them to be sustainable. (See <a href="#_bookmark3">Chapter 1 </a>for a full discussion.)</p>
+<p>在整个章节中，我们都尝试与这些主题联系起来，并指出这些原则如何影响工程实践并使其可持续。(见<a href="#_bookmark3">第1章</a>的全面讨论)。</p>
+<h3 id="googles-perspective-谷歌的视角"><a class="header" href="#googles-perspective-谷歌的视角">Google’s Perspective 谷歌的视角</a></h3>
+<p>Google has a unique perspective on the growth and evolution of a sustainable soft‐ ware ecosystem, stemming from our scale and longevity. We hope that the lessons we have learned will be useful as your organization evolves and embraces more sustainable practices.</p>
+<p>谷歌对可持续软件生态系统的发展和演变有着独特的视角，这源于我们的规模和寿命。我们希望在你的组织发展和采用更多的可持续发展的做法时，我们学到的经验将能对你有帮助。</p>
+<p>We’ve divided the topics in this book into three main aspects of Google’s software engineering landscape:</p>
+<ul>
+<li>Culture</li>
+<li>Processes</li>
+<li>Tools</li>
+</ul>
+<p>我们将本书的主题分为谷歌软件工程领域的三个主要方面：</p>
+<ul>
+<li>文化</li>
+<li>流程</li>
+<li>工具</li>
+</ul>
+<p>Google’s culture is unique, but the lessons we have learned in developing our engineering culture are widely applicable. Our chapters on Culture (<a href="#_bookmark100">Part II</a>) emphasize the collective nature of a software development enterprise, that the development of software is a team effort, and that proper cultural principles are essential for an organization to grow and remain healthy.</p>
+<p>谷歌的文化是独一无二的，但我们在发展工程文化中所获得的经验是广泛适用的。我们关于文化的章节（<a href="#_bookmark100">第二部分</a>）强调了软件开发企业的集体性，软件开发是一项团队工作，正确的文化原则对于一个组织的成长和保持健康至关重要。</p>
+<p>The techniques outlined in our Processes chapters (<a href="#_bookmark579">Part III</a>) are familiar to most soft‐ ware engineers, but Google’s large size and long-lived codebase provides a more complete stress test for developing best practices. Within those chapters, we have tried to emphasize what we have found to work over time and at scale as well as identify areas where we don’t yet have satisfying answers.</p>
+<p>在我们的流程章节（<a href="#_bookmark579">第三部分</a>）中概述的技术是大多数软体工程师所熟悉的，但谷歌的庞大规模和长期的代码库为开发最佳实践提供了一个更完整的压力测试。在这些章节中，我们强调我们发现随着时间的推移和规模的扩大，什么是有效的，以及确定我们还没有满意的答案的领域。</p>
+<p>Finally, our Tools chapters (<a href="#_bookmark1363">Part IV</a>) illustrate how we leverage our investments in tooling infrastructure to provide benefits to our codebase as it both grows and ages. In some cases, these tools are specific to Google, though we point out open source or third-party alternatives where applicable. We expect that these basic insights apply to most engineering organizations.</p>
+<p>最后，我们的工具章节（<a href="#_bookmark1363">第四部分</a>）说明了我们如何利用对工具基础设施的投入来优化代码库，因为它既增长又腐化。在某些情况下，这些工具是谷歌特有的，尽管我们在适当的地方指出了开源或第三方的替代品。我们希望这些基本的见解适用于大多数工程组织。</p>
+<p>The culture, processes, and tools outlined in this book describe the lessons that a typical software engineer hopefully learns on the job. Google certainly doesn’t have a monopoly on good advice, and our experiences presented here are not intended to dictate what your organization should do. This book is our perspective, but we hope you will find it useful, either by adopting these lessons directly or by using them as a starting point when considering your own practices, specialized for your own problem domain.</p>
+<p>本书中描写的文化、流程和工具是大多数的软件工程师希望在工作中使用的内容。谷歌当然不会独断好建议，我们在这里介绍的经验并不是要规定你的组织应当这么做。本书是我们的观点，但我们希望你会发现它是有用的，可以直接采用这些经验，也可以在考虑自己的实践时把它们作为一个起点，专门用于解决自己的领域问题。</p>
+<p>Neither is this book intended to be a sermon. Google itself still imperfectly applies many of the concepts within these pages. The lessons that we have learned, we learned through our failures: we still make mistakes, implement imperfect solutions, and need to iterate toward improvement. Yet the sheer size of Google’s engineering organization ensures that there is a diversity of solutions for every problem. We hope that this book contains the best of that group.</p>
+<p>本书也不打算成为一本布道书。谷歌自身仍在不完善地应用这些书中的许多理念。我们从失败中吸收了教训：我们仍然会犯错误，采用不完美的解决方案，还需要迭代改进。然而，谷歌工程组织的庞大规模确定了每个问题都有多样化的解决方案。我们希望这本书包含了这群人中最好的方案。</p>
+<h3 id="what-this-book-isnt-本书不适用于哪些"><a class="header" href="#what-this-book-isnt-本书不适用于哪些">What This Book Isn’t 本书不适用于哪些</a></h3>
+<p>This book is not meant to cover software design, a discipline that requires its own book (and for which much content already exists). Although there is some code in this book for illustrative purposes, the principles are language neutral, and there is little actual “programming” advice within these chapters. As a result, this text doesn’t cover many important issues in software development: project management, API design, security hardening, internationalization, user interface frameworks, or other language-specific concerns. Their omission in this book does not imply their lack of importance. Instead, we choose not to cover them here knowing that we could not provide the treatment they deserve. We have tried to make the discussions in this book more about engineering and less about programming.</p>
+<p>本书并不是要涵盖软件设计，这门学科有自己的书（而且已经有很多类型的书）。虽然书中有一些代码用于说明问题，但原则是语言无关的，而且这些章节中几乎没有实际的 "编程 "建议。因此，本书没有涉及软件开发中的许多重要问题：项目管理、API设计、安全加固、国际化、用户界面框架或其他特定编程语言问题。本书对这些问题的忽略并不意味着它们不重要。相反，我们选择不在这里涉及它们，因为我们知道我们无法提供它们应有的内容。我们试图使本书的讨论更多的关于工程领域，而不是关于编程领域。</p>
+<h3 id="parting-remarks-临别赠言"><a class="header" href="#parting-remarks-临别赠言">Parting Remarks 临别赠言</a></h3>
+<p>This text has been a labor of love on behalf of all who have contributed, and we hope that you receive it as it is given: as a window into how a large software engineering organization builds its products. We also hope that it is one of many voices that helps move our industry to adopt more forward-thinking and sustainable practices. Most important, we further hope that you enjoy reading it and can adopt some of its lessons to your own concerns.</p>
+<p>这篇文章是所有贡献者的心血结晶，我们希望你能虚心地接受它：作为了解一个大型软件工程组织如何构建其产品的窗口。我们还希望它是有助于推动我们的行业采用更具前瞻性和可持续实践的众多声音之一。最重要的是，我们更希望你喜欢它，并能将其中的一些经验用于你的工作。</p>
+<p><em>— Tom Manshreck</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../src/Foreword.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../src/Chapter-1_What_Is_Software_Engineering.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../src/Foreword.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../src/Chapter-1_What_Is_Software_Engineering.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,241 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>后记 - Software Engineering at Google</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../src/Foreword.html"><strong aria-hidden="true">1.</strong> 前言</a></li><li class="chapter-item expanded "><a href="../src/Preface.html"><strong aria-hidden="true">2.</strong> 序言</a></li><li class="chapter-item expanded "><a href="../src/Chapter-1_What_Is_Software_Engineering.html"><strong aria-hidden="true">3.</strong> 第一章 软件工程是什么？</a></li><li class="chapter-item expanded "><a href="../src/Chapter-2_How_to_Work_Well_on_Teams.html"><strong aria-hidden="true">4.</strong> 第二章 如何融入团队</a></li><li class="chapter-item expanded "><a href="../src/Chapter-3_Knowledge_Sharing.html"><strong aria-hidden="true">5.</strong> 第三章 知识共享</a></li><li class="chapter-item expanded "><a href="../src/Chapter-4_Engineering_for_Equity.html"><strong aria-hidden="true">6.</strong> 第四章 公平工程</a></li><li class="chapter-item expanded "><a href="../src/Chapter-5_How_to_Lead_a_Team.html"><strong aria-hidden="true">7.</strong> 第五章 如何领导团队</a></li><li class="chapter-item expanded "><a href="../src/Chapter-6_Leading_at_Scale.html"><strong aria-hidden="true">8.</strong> 第六章 规模优先</a></li><li class="chapter-item expanded "><a href="../src/Chapter-7_Measuring_Engineering_Productivity.html"><strong aria-hidden="true">9.</strong> 第七章 测量工程效率</a></li><li class="chapter-item expanded "><a href="../src/Chapter-8_Style_Guides_and_Rules.html"><strong aria-hidden="true">10.</strong> 第八章 风格指南和规则</a></li><li class="chapter-item expanded "><a href="../src/Chapter-9_Code_Review.html"><strong aria-hidden="true">11.</strong> 第九章 代码审查</a></li><li class="chapter-item expanded "><a href="../src/Chapter-10_Documentatio.html"><strong aria-hidden="true">12.</strong> 第十章 文档</a></li><li class="chapter-item expanded "><a href="../src/Chapter-11_Testing_Overview.html"><strong aria-hidden="true">13.</strong> 第十一章 测试概述</a></li><li class="chapter-item expanded "><a href="../src/Chapter-12_Unit_Testing.html"><strong aria-hidden="true">14.</strong> 第十二章 单元测试</a></li><li class="chapter-item expanded "><a href="../src/Chapter-13_Test_Doubles.html"><strong aria-hidden="true">15.</strong> 第十三章 测试替代</a></li><li class="chapter-item expanded "><a href="../src/Chapter-14_Larger_Testing.html"><strong aria-hidden="true">16.</strong> 第十四章 大型测试</a></li><li class="chapter-item expanded "><a href="../src/Chapter-15_Deprecation.html"><strong aria-hidden="true">17.</strong> 第十五章 废弃</a></li><li class="chapter-item expanded "><a href="../src/Chapter-16_Version_Control_and_Branch_Management.html"><strong aria-hidden="true">18.</strong> 第十六章 版本控制和分支管理</a></li><li class="chapter-item expanded "><a href="../src/Chapter-17_Code_Search.html"><strong aria-hidden="true">19.</strong> 第十七章 代码搜索</a></li><li class="chapter-item expanded "><a href="../src/Chapter-18_Build_Systems_and_Build_Philosophy.html"><strong aria-hidden="true">20.</strong> 第十八章 构建系统，构建理念</a></li><li class="chapter-item expanded "><a href="../src/Chapter-19_Critique_Googles_Code_Review_Tool.html"><strong aria-hidden="true">21.</strong> 第十九章 体验：谷歌的代码审查工具</a></li><li class="chapter-item expanded "><a href="../src/Chapter-20_Static_Analysis.html"><strong aria-hidden="true">22.</strong> 第二十章 静态分析</a></li><li class="chapter-item expanded "><a href="../src/Chapter-21_Dependency_Management.html"><strong aria-hidden="true">23.</strong> 第二十一章 依赖管理</a></li><li class="chapter-item expanded "><a href="../src/Chapter-22_Large-Scale_Changes.html"><strong aria-hidden="true">24.</strong> 第二十二章 大规模变更</a></li><li class="chapter-item expanded "><a href="../src/Chapter-23_Continuous_Integration.html"><strong aria-hidden="true">25.</strong> 第二十三章 持续集成</a></li><li class="chapter-item expanded "><a href="../src/Chapter-24_Continuous_Delivery.html"><strong aria-hidden="true">26.</strong> 第二十四章 持续交付</a></li><li class="chapter-item expanded "><a href="../src/Chapter-25_Compute_as_a_Service.html"><strong aria-hidden="true">27.</strong> 第二十五章 计算即服务</a></li><li class="chapter-item expanded "><a href="../src/Afterword.html" class="active"><strong aria-hidden="true">28.</strong> 后记</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Software Engineering at Google</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/whatot/Software-Engineering-at-Google" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="后记"><a class="header" href="#后记">后记</a></h1>
+<p>Software engineering at Google has been an extraordinary experiment in how to develop and maintain a large and evolving codebase. I’ve seen engineering teams break ground on this front during my time here, moving Google forward both as a company that touches billions of users and as a leader in the tech industry. This wouldn’t have been possible without the principles outlined in this book, so I’m very excited to see these pages come to life.</p>
+<p>谷歌的软件工程是一个非凡的实验，探索如何开发和维护一个庞大且不断演进的代码库。在我在这里的时间里，我见证了工程团队在这方面取得的突破，将谷歌推向了一个既触及数十亿用户又是科技行业领导者的公司。如果没有本书中概述的原则，这将是不可能的，因此我非常兴奋地看到这些内容变为现实。</p>
+<p>If the past 50 years (or the preceding pages here) have proven anything, it’s that soft‐ ware engineering is far from stagnant. In an environment in which technology is steadily changing, the software engineering function holds a particularly important role within a given organization. Today, software engineering principles aren’t simply about how to effectively run an organization; they’re about how to be a more respon‐ sible company for users and the world at large.</p>
+<p>如果过去的50年（或前面的内容）证明了什么，那就是软件工程远没有停滞不前。在技术不断变化的环境中，软件工程功能在组织中扮演着特别重要的角色。今天，软件工程原则不仅仅是关于如何有效地运行一个组织；他们关注的是如何成为一家对用户和整个世界更负责任的公司。</p>
+<p>Solutions to common software engineering problems are not always hidden in plain sight—most require a certain level of resolute agility to identify solutions that will work for current-day problems and also withstand inevitable changes to technical systems. This agility is a common quality of the software engineering teams I’ve had the privilege to work with and learn from since joining Google back in 2008.</p>
+<p>解决常见的软件工程问题并非总是显而易见的事情--大多数问题需要一定程度的果断敏捷性，以确定能够解决当前问题的解决方案，同时也能承受技术系统不可避免的变化。这种敏捷性是我自2008年加入谷歌以来，有幸与之合作和学习的软件工程团队普遍具备的一种品质。</p>
+<p>The idea of sustainability is also central to software engineering. Over a codebase’s expected lifespan, we must be able to react and adapt to changes, be that in product direction, technology platforms, underlying libraries, operating systems, and more. Today, we rely on the principles outlined in this book to achieve crucial flexibility in changing pieces of our software ecosystem.</p>
+<p>可持续性的概念对软件工程也至关重要。在代码库的预期生命周期内，我们必须能够对变化做出反应和适应，无论是在产品方向、技术平台、底层库、操作系统还是其他方面。今天，我们依靠本书中概述的原则，在改变软件生态系统的各个部分时实现至关重要的灵活性。</p>
+<p>We certainly can’t prove that the ways we’ve found to attain sustainability will work for every organization, but I think it’s important to share these key learnings. Soft‐ ware engineering is a new discipline, so very few organizations have had the chance to achieve both sustainability and scale. By providing this overview of what we’ve seen, as well as the bumps along the way, our hope is to demonstrate the value and feasibility of long-term planning for code health. The passage of time and the impor‐ tance of change cannot be ignored.</p>
+<p>我们当然不能证明我们找到的实现可持续性的途径对每个组织都有效，但我认为分享这些关键的经验很重要。软体工程是一门新的学科，所以很少有组织有机会同时实现可持续性和规模化。通过概述我们所看到的，以及沿途的坎坷，我们希望展示价值和可行性。时间的推移和变化的重要性是不容忽视的。</p>
+<p>This book outlines some of our key guiding principles as they relate to software engi‐ neering. At a high level, it also illuminates the influence of technology on society. As software engineers, it’s our responsibility to ensure that our code is designed with inclusion, equity, and accessibility for everyone. Building for the sole purpose of innovation is no longer acceptable; technology that helps only a set of users isn’t innovative at all.</p>
+<p>本书概述了我们与软件工程相关的一些关键指导原则。在高维度上，它还阐明了技术对社会的影响。作为软件工程师，我们有责任确保我们的代码设计具有包容性、公平性和可访问性。以创新为唯一目的的架构不再被接受；只帮助一个群体的技术根本就不是创新。</p>
+<p>Our responsibility at Google has always been to provide developers, internally and externally, with a well-lit path. With the rise of new technologies like artificial intelli‐ gence, quantum computing, and ambient computing, there’s still plenty for us to learn as a company. I’m particularly excited to see where the industry takes software engi‐ neering in the coming years, and I’m confident that this book will help shape that path.</p>
+<p>我们在谷歌的责任一直是为内部和外部的开发者提供一条光明的道路。随着人工智能、量子计算和环境计算等新技术的兴起，作为一家公司，我们仍有很多东西需要学习。我特别期待看到软件行业在未来几年的发展方向，我相信这本书将有助于塑造这条路。</p>
+<p>—<em>Asim Husain</em></p>
+<p><em>Vice President of Engineering, Google</em></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../src/Chapter-25_Compute_as_a_Service.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../src/Chapter-25_Compute_as_a_Service.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

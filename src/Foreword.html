@@ -1,0 +1,238 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>前言 - Software Engineering at Google</title>
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="shortcut icon" href="../favicon.png">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="../highlight.css">
+        <link rel="stylesheet" href="../tomorrow-night.css">
+        <link rel="stylesheet" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "../";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded "><a href="../src/Foreword.html" class="active"><strong aria-hidden="true">1.</strong> 前言</a></li><li class="chapter-item expanded "><a href="../src/Preface.html"><strong aria-hidden="true">2.</strong> 序言</a></li><li class="chapter-item expanded "><a href="../src/Chapter-1_What_Is_Software_Engineering.html"><strong aria-hidden="true">3.</strong> 第一章 软件工程是什么？</a></li><li class="chapter-item expanded "><a href="../src/Chapter-2_How_to_Work_Well_on_Teams.html"><strong aria-hidden="true">4.</strong> 第二章 如何融入团队</a></li><li class="chapter-item expanded "><a href="../src/Chapter-3_Knowledge_Sharing.html"><strong aria-hidden="true">5.</strong> 第三章 知识共享</a></li><li class="chapter-item expanded "><a href="../src/Chapter-4_Engineering_for_Equity.html"><strong aria-hidden="true">6.</strong> 第四章 公平工程</a></li><li class="chapter-item expanded "><a href="../src/Chapter-5_How_to_Lead_a_Team.html"><strong aria-hidden="true">7.</strong> 第五章 如何领导团队</a></li><li class="chapter-item expanded "><a href="../src/Chapter-6_Leading_at_Scale.html"><strong aria-hidden="true">8.</strong> 第六章 规模优先</a></li><li class="chapter-item expanded "><a href="../src/Chapter-7_Measuring_Engineering_Productivity.html"><strong aria-hidden="true">9.</strong> 第七章 测量工程效率</a></li><li class="chapter-item expanded "><a href="../src/Chapter-8_Style_Guides_and_Rules.html"><strong aria-hidden="true">10.</strong> 第八章 风格指南和规则</a></li><li class="chapter-item expanded "><a href="../src/Chapter-9_Code_Review.html"><strong aria-hidden="true">11.</strong> 第九章 代码审查</a></li><li class="chapter-item expanded "><a href="../src/Chapter-10_Documentatio.html"><strong aria-hidden="true">12.</strong> 第十章 文档</a></li><li class="chapter-item expanded "><a href="../src/Chapter-11_Testing_Overview.html"><strong aria-hidden="true">13.</strong> 第十一章 测试概述</a></li><li class="chapter-item expanded "><a href="../src/Chapter-12_Unit_Testing.html"><strong aria-hidden="true">14.</strong> 第十二章 单元测试</a></li><li class="chapter-item expanded "><a href="../src/Chapter-13_Test_Doubles.html"><strong aria-hidden="true">15.</strong> 第十三章 测试替代</a></li><li class="chapter-item expanded "><a href="../src/Chapter-14_Larger_Testing.html"><strong aria-hidden="true">16.</strong> 第十四章 大型测试</a></li><li class="chapter-item expanded "><a href="../src/Chapter-15_Deprecation.html"><strong aria-hidden="true">17.</strong> 第十五章 废弃</a></li><li class="chapter-item expanded "><a href="../src/Chapter-16_Version_Control_and_Branch_Management.html"><strong aria-hidden="true">18.</strong> 第十六章 版本控制和分支管理</a></li><li class="chapter-item expanded "><a href="../src/Chapter-17_Code_Search.html"><strong aria-hidden="true">19.</strong> 第十七章 代码搜索</a></li><li class="chapter-item expanded "><a href="../src/Chapter-18_Build_Systems_and_Build_Philosophy.html"><strong aria-hidden="true">20.</strong> 第十八章 构建系统，构建理念</a></li><li class="chapter-item expanded "><a href="../src/Chapter-19_Critique_Googles_Code_Review_Tool.html"><strong aria-hidden="true">21.</strong> 第十九章 体验：谷歌的代码审查工具</a></li><li class="chapter-item expanded "><a href="../src/Chapter-20_Static_Analysis.html"><strong aria-hidden="true">22.</strong> 第二十章 静态分析</a></li><li class="chapter-item expanded "><a href="../src/Chapter-21_Dependency_Management.html"><strong aria-hidden="true">23.</strong> 第二十一章 依赖管理</a></li><li class="chapter-item expanded "><a href="../src/Chapter-22_Large-Scale_Changes.html"><strong aria-hidden="true">24.</strong> 第二十二章 大规模变更</a></li><li class="chapter-item expanded "><a href="../src/Chapter-23_Continuous_Integration.html"><strong aria-hidden="true">25.</strong> 第二十三章 持续集成</a></li><li class="chapter-item expanded "><a href="../src/Chapter-24_Continuous_Delivery.html"><strong aria-hidden="true">26.</strong> 第二十四章 持续交付</a></li><li class="chapter-item expanded "><a href="../src/Chapter-25_Compute_as_a_Service.html"><strong aria-hidden="true">27.</strong> 第二十五章 计算即服务</a></li><li class="chapter-item expanded "><a href="../src/Afterword.html"><strong aria-hidden="true">28.</strong> 后记</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Software Engineering at Google</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/whatot/Software-Engineering-at-Google" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h2 id="foreword-前言"><a class="header" href="#foreword-前言">Foreword 前言</a></h2>
+<p>I have always been endlessly fascinated with the details of how Google does things. I have grilled my Googler friends for information about the way things really work inside of the company. How do they manage such a massive, monolithic code repository without falling over? How do tens of thousands of engineers successfully collaborate on thousands of projects? How do they maintain the quality of their systems?</p>
+<p>我对谷歌做事的细节着迷不已。我也曾向在谷歌工作的朋友问询谷歌内部如何运作。他们是如何管理如此庞大的单体代码库而不出错的？数以万计的工程师是如何在数千个项目上成功协作的？他们是如何保持系统的质量的？</p>
+<p>Working with former Googlers has only increased my curiosity. If you’ve ever worked with a former Google engineer (or “Xoogler,” as they’re sometimes called), you’ve no doubt heard the phrase “at Google we…” Coming out of Google into other companies seems to be a shocking experience, at least from the engineering side of things. As far as this outsider can tell, the systems and processes for writing code at Google must be among the best in the world, given both the scale of the company and how often peo‐ ple sing their praises.</p>
+<p>与前谷歌员工一起共事，只会增加我的好奇心。如果你曾经与前谷歌工程师（或他们有时称之为“Xoogler”）一起工作，你无疑听到过这样一句话："在谷歌我们......" 从谷歌出来进入其他公司已经是一个令人羡慕的经历，至少从工程方面来说是这样。就我这个局外人而言，考虑到公司的规模和员工对其的赞誉程度，谷歌公司编写代码的系统和流程一定是世界上最好的之一。</p>
+<p>In <em>Software Engineering at Google</em>, a set of Googlers (and some Xooglers) gives us a lengthy blueprint for many of the practices, tools, and even cultural elements that underlie software engineering at Google. It’s easy to overfocus on the amazing tools that Google has built to support writing code, and this book provides a lot of details about those tools. But it also goes beyond simply describing the tooling to give us the philosophy and processes that the teams at Google follow. These can be adapted to fit a variety of circumstances, whether or not you have the scale and tooling. To my delight, there are several chapters that go deep on various aspects of automated testing, a topic that continues to meet with too much resistance in our industry.</p>
+<p>在*《Google的软件工程》*中，一组Googlers（和一些Xooglers）为我们提供了谷歌软件工程的许多实践、工具甚至文化元素的详细蓝图。我们很容易过度关注谷歌为支持编写代码而构建的神奇工具，本书提供了很多关于这些工具的细节。本书不仅仅是简单地描述工具，为我们提供谷歌团队遵循的理念和流程。这些都可以适应各种情况，无论你是否有这样的规模和工具。令我兴奋的是，有几个章节深入探讨了自动化测试的各个方面，这个话题在我们的行业中仍然遇到太多的阻力。</p>
+<p>The great thing about tech is that there is never only one way to do something. Instead, there is a series of trade-offs we all must make depending on the circumstances of our team and situation. What can we cheaply take from open source? What can our team build? What makes sense to support for our scale? When I was grilling my Googler friends, I wanted to hear about the world at the extreme end of scale: resource rich, in both talent and money, with high demands on the software being built. This anecdotal information gave me ideas on some options that I might not otherwise have considered.</p>
+<p>技术的伟大之处在于，做一件事永远不会只有一种方法。相反，有一系列的权衡，我们都必须根据我们的团队和现状来选择。我们可以从开放源码中低成本地获取什么？我们的团队可以创建什么？对我们的规模来说，什么是有意义的支持？当我在询问我的Googler朋友时，我想听听处于规模之颠的世界：要钱有钱，要人有人，对正在构建的软件要求很高。这些信息给了我一些想法，这些想法可能是我没有思考过的。</p>
+<p>With this book, we’ve written down those options for everyone to read. Of course, Google is a unique company, and it would be foolish to assume that the right way to run your software engineering organization is to precisely copy their formula. Applied practically, this book will give you ideas on how things could be done, and a lot of information that you can use to bolster your arguments for adopting best practices like testing, knowledge sharing, and building collaborative teams.</p>
+<p>通过这本书，我们把这些选择写下来供大家阅读。当然，谷歌是一家独一无二的公司，如果认为运行你的软件工程组织的正确方法是精确地复制他们的模式，那就太愚蠢了。在实际应用中，这本书会给你提供关于如何做事情的想法，以及很多信息，你可以用这些信息来支持你采用最佳实践的论据，如测试、知识共享和建立协作团队。</p>
+<p>You may never need to build Google yourself, and you may not even want to reach for the same techniques they apply in your organization. But if you aren’t familiar with the practices Google has developed, you’re missing a perspective on software engineering that comes from tens of thousands of engineers working collaboratively on software over the course of more than two decades. That knowledge is far too valuable to ignore.</p>
+<p>你可能永远不需要自己创建谷歌，你甚至可能不想在你的组织中使用他们所应用的技术。但是，如果你不熟悉谷歌开发的实践，你就会错过一个关于软件工程的视角，这个视角来自于二十多年来数万名工程师在软件上的协作。这些知识太有价值了，不能忽视。</p>
+<p><em>— Camille Fournier</em> <em>Author,</em> The Manager’s Path</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next prefetch" href="../src/Preface.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next prefetch" href="../src/Preface.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

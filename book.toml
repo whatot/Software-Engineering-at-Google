@@ -1,0 +1,10 @@
+[book]
+authors = ["Titus Winters","Tom Manshreck","Hyrum Wright"]
+language = "zh"
+multilingual = false
+src = "./"
+title = "Software Engineering at Google"
+
+[output.html]
+git-repository-url = "https://github.com/whatot/Software-Engineering-at-Google"
+git-branch = "main"
