@@ -5,14 +5,6 @@ multilingual = false
 src = "./"
 title = "Software Engineering at Google"
 
-[preprocessor.toc]
-command = "mdbook-toc"
-renderer = ["html"]
-
-[preprocessor.open-on-gh]
-command = "mdbook-open-on-gh"
-renderer = ["html"]
-
 [output.html]
 git-repository-url = "https://github.com/whatot/Software-Engineering-at-Google"
 git-branch = "main"
